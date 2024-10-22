@@ -14,7 +14,7 @@ import java.util.Scanner;
 
 public class Pb4_Main {
     public static int getControl(String cnp) {
-        int sum = 0, control = 0;
+        int sum = 0, control;
         int[] num = {2, 7, 9, 1, 4, 6, 3, 5, 8, 2, 7, 9}; //cifrele folosite in calculul cifrei de control
         int[] afterM = new int[12]; //rezultatele inmultirii
 
@@ -41,16 +41,14 @@ public class Pb4_Main {
         if (cnp.charAt(0) != '1' && cnp.charAt(0) != '2' && cnp.charAt(0) != '5' && cnp.charAt(0) != '6') return false;
 
         //Cifra de control
-        if (cnp.charAt(12) - '0' != getControl(cnp)) return false;
-
-        return true;
+        return cnp.charAt(12) - '0' == getControl(cnp);
     }
 
     public static void main(String[] args) {
         //Scanner pentru citirea de la tastatura
         Scanner sc = new Scanner(System.in);
 
-        int n = 0; // numarul de persoane
+        int n; // numarul de persoane
 
         System.out.print("Numarul de persoane: ");
         n = sc.nextInt();
